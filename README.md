@@ -10,3 +10,7 @@ Fitur :
 - Laporan Daftar sales
 - Laporan transaksi
 - Cetak Laporan
+
+  login
+  username: petugas
+  password : admin
