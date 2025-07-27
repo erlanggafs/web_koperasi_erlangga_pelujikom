@@ -3,6 +3,9 @@
 Sistem Informasi Koperasi Menggunakan PHP Murni. <br>
 Dapat dikembangan menggunakan Framework Yang disukai.
 
+
+ubah port 3310 ke 330 untuk setelah default
+
 Fitur :
 
 - Daftar sales
