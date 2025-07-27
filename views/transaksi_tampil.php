@@ -1,6 +1,8 @@
 <?php
-if(!isset($_SESSION['idsesi'])) {
-    echo "<script> window.location.assign('../index.php'); </script>";
+// Cek session login
+if (!isset($_SESSION['idsesi'])) {
+    echo "<script>window.location.assign('../index.php');</script>";
+    exit;
 }
 ?>
 
@@ -8,9 +10,15 @@ if(!isset($_SESSION['idsesi'])) {
     <div class="row">
         <div class="col-xs-12">
             <div class="panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><span class="fa fa-user-plus"></span> Riwayat peminjaman</h3>
+                <div class="panel-heading clearfix">
+                    <h3 class="panel-title pull-left">
+                        <span class="fa fa-user-plus"></span> Riwayat Transaksi
+                    </h3>
+                    <a href="?page=transaksi&actions=tambah" class="btn btn-primary btn-sm pull-right">
+                        <span class="fa fa-plus"></span> Tambah Transaksi
+                    </a>
                 </div>
+
                 <div class="panel-body">
                     <table id="dtskripsi" class="table table-bordered table-striped table-hover">
                         <thead>
@@ -27,14 +35,14 @@ if(!isset($_SESSION['idsesi'])) {
                         </thead>
                         <tbody>
                             <?php
-                            // Query dengan JOIN untuk menampilkan nama item
+                            // Query join dengan tabel item
                             $sql = "SELECT t.*, i.nama_item, i.uom 
-                                   FROM transaction t 
-                                   LEFT JOIN item i ON t.id_item = i.id_item 
-                                   ORDER BY t.id_transaction DESC";
-                            
+                                    FROM transaction t 
+                                    LEFT JOIN item i ON t.id_item = i.id_item 
+                                    ORDER BY t.id_transaction DESC";
                             $query = mysqli_query($koneksi, $sql) or die("SQL Error: " . mysqli_error($koneksi));
                             $nomor = 0;
+
                             while ($data = mysqli_fetch_array($query)) {
                                 $nomor++;
                                 ?>
@@ -52,20 +60,23 @@ if(!isset($_SESSION['idsesi'])) {
                                     <td>Rp <?= number_format($data['amount'], 0, ',', '.') ?></td>
                                     <td><?= $data['remark'] ?></td>
                                     <td>
-                                        <a href="?page=peminjaman&actions=detail&id=<?= $data['id_transaction'] ?>" class="btn btn-info btn-xs">
-                                            <span class="fa fa-eye"></span>
-                                        </a>
-                                        <a href="?page=peminjaman&actions=edit&id=<?= $data['id_transaction'] ?>" class="btn btn-warning btn-xs">
+                                        <a href="?page=transaksi&actions=edit&id=<?= $data['id_transaction'] ?>" class="btn btn-warning btn-xs">
                                             <span class="fa fa-edit"></span>
                                         </a>
-                                        <a href="?page=peminjaman&actions=delete&id=<?= $data['id_transaction'] ?>" class="btn btn-danger btn-xs">
+                                        <a href="?page=transaksi&actions=delete&id=<?= $data['id_transaction'] ?>" class="btn btn-danger btn-xs" onclick="return confirm('Yakin hapus transaksi ini?')">
                                             <span class="fa fa-remove"></span>
                                         </a>
                                     </td>
                                 </tr>
-                            <?php } ?>
+                                <?php
+                            }
+                            ?>
                         </tbody>
                     </table>
+                </div>
+
+                <div class="panel-footer">
+                    <i>Data transaksi terakhir diperbarui otomatis</i>
                 </div>
             </div>
         </div>

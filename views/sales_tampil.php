@@ -9,7 +9,7 @@ if(!isset($_SESSION ['idsesi'])) {
         <div class="col-xs-12">
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><span class="fa fa-shopping-cart"></span> Data Penjualan</h3>
+                    <h3 class="panel-title"><span class="fa fa-shopping-cart"></span> Data Sales</h3>
                 </div>
                 <div class="panel-body">
                     <table id="deskripsi" class="table table-bordered table-striped table-hover">
@@ -58,9 +58,9 @@ if(!isset($_SESSION ['idsesi'])) {
 
 
                                     <td>
-                                        <a href="?page=sales&actions=detail&id=<?= $data['id_sales'] ?>" class="btn btn-info btn-xs">
+                                        <!-- <a href="?page=sales&actions=detail&id=<?= $data['id_sales'] ?>" class="btn btn-info btn-xs">
                                             <span class="fa fa-eye"></span>
-                                        </a>
+                                        </a> -->
                                         <a href="?page=sales&actions=edit&id=<?= $data['id_sales'] ?>" class="btn btn-warning btn-xs">
                                             <span class="fa fa-edit"></span>
                                         </a>
@@ -75,7 +75,7 @@ if(!isset($_SESSION ['idsesi'])) {
                             <tr>
                                 <td colspan="7">
                                     <a href="?page=sales&actions=tambah" class="btn btn-info btn-sm">
-                                        Tambah Data Penjualan
+                                        Tambah Data Sales
                                     </a>
                                 </td>
                             </tr>

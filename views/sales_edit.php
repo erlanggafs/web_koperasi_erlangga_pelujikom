@@ -34,7 +34,7 @@ $data = mysqli_fetch_array($ambil);
                             <label for="status" class="col-sm-3 control-label">Status</label>
                             <div class="col-sm-3">
                                 <select name="status" class="form-control">
-                                    <option value="pending" <?=($data['status']=='pending')?'selected':''?>>Pending</option>
+                                    <option value="baru" <?=($data['status']=='baru')?'selected':''?>>Baru</option>
                                     <option value="proses" <?=($data['status']=='proses')?'selected':''?>>Proses</option>
                                     <option value="selesai" <?=($data['status']=='selesai')?'selected':''?>>Selesai</option>
                                 </select>

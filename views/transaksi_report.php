@@ -37,7 +37,7 @@
                                     <td><?= number_format($data['amount'], 0, ',', '.') ?></td>
                                   
                                     <td>
-                                        <a href="report/transaction_detail.php?id=<?= $data['id_transaction'] ?>" target="_blank" class="btn btn-info btn-xs">
+                                        <a href="report/transaksi_detail.php?id_transaction=<?= $data['id_transaction'] ?>" target="_blank" class="btn btn-info btn-xs">
                                             <span class="fa fa-print"></span>
                                         </a>
                                     </td>
