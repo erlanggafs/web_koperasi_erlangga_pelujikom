@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3310
--- Generation Time: Jul 27, 2025 at 08:24 AM
+-- Generation Time: Jul 27, 2025 at 11:03 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.2.25
 
@@ -130,7 +130,7 @@ CREATE TABLE `level` (
 
 INSERT INTO `level` (`id_level`, `level`) VALUES
 (1, 'admin'),
-(2, 'manager');
+(2, 'sales');
 
 -- --------------------------------------------------------
 
@@ -165,7 +165,8 @@ CREATE TABLE `petugas` (
 
 INSERT INTO `petugas` (`id_user`, `nama_user`, `username`, `password`, `level`) VALUES
 (1, 'admin', 'admin', 'admin', 1),
-(2, 'Administrator', 'petugas', '21232f297a57a5a743894a0e4a801fc3', 1);
+(2, 'Administrator', 'petugas', '21232f297a57a5a743894a0e4a801fc3', 1),
+(3, 'sales affair', 'sales', '9ed083b1436e5f40ef984b28255eef18', 2);
 
 -- --------------------------------------------------------
 
@@ -186,14 +187,14 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`id_sales`, `tgl_sales`, `id_customer`, `do_number`, `status`) VALUES
-(1, '2025-07-01', 1, 'DO-20250701-001', 'proses'),
+(1, '2025-07-01', 1, 'DO-20250701-001', 'baru'),
 (3, '2025-07-03', 3, 'DO-20250703-003', 'selesai'),
-(4, '2025-07-04', 4, 'DO-20250704-004', 'baru'),
-(5, '2025-07-05', 5, 'DO-20250705-005', 'selesai'),
 (8, '2025-07-08', 1, 'DO-20250708-008', 'selesai'),
 (10, '2025-07-10', 5, 'DO-20250710-010', 'proses'),
 (12, '2025-07-27', 2, 'DO-20250701-00ANA', 'selesai'),
-(13, '2025-07-27', 4, 'DO-20250701-00TES1A', 'selesai');
+(14, '2025-07-27', 1, 'DO-SJ20250701-0032', 'baru'),
+(15, '2025-07-27', 7, 'DO-SR20250701-00121', 'baru'),
+(16, '2025-07-27', 9, 'DO-SA20250701-00AN', 'baru');
 
 -- --------------------------------------------------------
 
@@ -348,13 +349,13 @@ ALTER TABLE `manager`
 -- AUTO_INCREMENT for table `petugas`
 --
 ALTER TABLE `petugas`
-  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id_sales` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_sales` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `transaction`
